@@ -2,6 +2,9 @@
     "Raids" : 
     {
         "EnableExtendedRaid": true,
-        "raidTimer": 200
+        "raidTimer": 120,
+
+        "IncreasedBossChance": true,
+        "BossSpawnPercent": 75
     }
 }
