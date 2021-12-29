@@ -13,7 +13,6 @@ class mod
         // enable extended raid if true and raidTime is a number
         if (config.Raids.EnableExtendedRaid && typeof config.Raids.raidTimer === 'number')
         {
-            Logger.info("Hitman Mod: Extended Raid activated");
             // for all maps if the map is not a base
             for (let map in locations) 
             {
@@ -24,6 +23,7 @@ class mod
                     locations[map].base.escape_time_limit = config.Raids.raidTimer
                 }
             }
+            Logger.info("Hitman Mod: Extended Raid activated");
         }
         // enable increased boss spawn if true and spawn percent is a number
         if (config.Raids.IncreasedBossChance && typeof config.Raids.BossSpawnPercent === 'number')
@@ -40,12 +40,13 @@ class mod
                         // set spawn chance
                         for (let x in locations[i].base.BossLocationSpawn) 
                         {
-                            locations[i].base.BossLocationSpawn[x].BossChance = config.raids.BossSpawnPercent
+                            locations[i].base.BossLocationSpawn[x].BossChance = config.Raids.BossSpawnPercent
                         }
                         
                     }
                 }
             }
+            Logger.info("Hitman Mod: Increased Boss Spawn activated");
         }
     }
 }
