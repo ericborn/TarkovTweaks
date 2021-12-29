@@ -1,35 +1,25 @@
-const database = DatabaseServer.tables
-const locations = database.locations
-const modFolder = `${ModLoader.getModPath(module.filename.split('\\')[module.filename.split('\\').length - 3])}`
-let config = require('../config/config.json')
-
-class raidMods
+"use strict";
+class mainLoader
 {
-    constructor()
+    static load()
     {
-        this.modname = 'Brohammer\'s Raid Mods';
-        Logger.info(`Loading: ${this.modname}`);
-        if (!ModLoader.onLoad[this.modname])
-			ModLoader.onLoad[this.modname] = this.load.bind(this);
-		else
-		{
-			this.modname += '_Alt'
-			ModLoader.onLoad[this.modname] = this.load.bind(this)
-		}
-		HttpRouter.onStaticRoute['/client/game/start'][this.modname] = Mod.runOnGameStart //DOES NOT REPLACE the AKI function
-    }
+        const config = require('../config/config.json')
+        const DB = DatabaseServer.tables;
+        const locations = DB.locations;
+        Logger.info(`Loading: Brohammers Raid Mods`);
 
-    static setExtendedRaid()
-    {
-        if (config.raidTimer.extendedRaid === true && typeof config.raidTimer.raidTimer === 'number'){
-            for (let map in locations) {
-                if (map !== "base") {
-                    locations[map].base.exit_access_time = config.raids.RaidTimer
-                    locations[map].base.escape_time_limit = config.raids.RaidTimer
+        if (config.Raids.EnableExtendedRaid)
+        {
+            for (let map in locations) 
+            {
+                if (map !== "base") 
+                {
+                    locations[map].base.exit_access_time = 240
+                    locations[map].base.escape_time_limit = 240
                 }
             }
         }
     }
 }
 
-module.exports.raidMods = raidMods;
+module.exports = mainLoader;

@@ -1,7 +1,7 @@
 {
-    "raidTimer" : 
+    "Raids" : 
     {
-        "extendedRaid": true,
+        "EnableExtendedRaid": true,
         "raidTimer": 200
     }
 }
