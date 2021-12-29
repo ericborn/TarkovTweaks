@@ -1,13 +1,13 @@
 "use strict";
-class mainLoader
-{
-    static load()
-    {
-        const config = require('../config/config.json')
-        const DB = DatabaseServer.tables;
-        const locations = DB.locations;
-        Logger.info(`Loading: Brohammers Raid Mods`);
 
+const config = require("../config/config.json");
+
+class mod
+{
+    static onLoad()
+    {
+        const DB = DatabaseServer.tables
+        const locations = DB.locations
         if (config.Raids.EnableExtendedRaid)
         {
             for (let map in locations) 
@@ -22,4 +22,4 @@ class mainLoader
     }
 }
 
-module.exports = mainLoader;
+module.exports = mod;

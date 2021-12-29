@@ -1,8 +1,8 @@
 {
-    "name": "Brohammer's Tarkov Tweaks",
+    "name": "TarkovTweaks",
     "author": "Brohammer",
     "version": "1.0.0",
     "akiVersion": "2.2.0",
     "license": "NCSA Open Source",
-    "main": "package.js"
+    "main": "mod.js"
 }
