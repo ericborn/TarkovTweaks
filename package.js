@@ -2,6 +2,6 @@
  * authors: Brohammer
  */
 
-const { Tweaks } = require("./src/src.js");
+const { raidMods } = require("./src/raids.js");
 
-module.exports.mod = new Tweaks();
+module.exports.mod = new raidMods();

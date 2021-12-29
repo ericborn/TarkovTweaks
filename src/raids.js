@@ -31,3 +31,5 @@ class raidMods
         }
     }
 }
+
+module.exports.raidMods = raidMods;
