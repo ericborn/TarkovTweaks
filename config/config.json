@@ -1,33 +1,33 @@
 {
     "Raids" : 
     {
-        "EnableExtendedRaid": true,
+        "ExtendedRaidToggle": true,
         "raidTimer": 120,
 
-        "IncreasedBossChance": true,
+        "IncreasedBossChanceToggle": true,
         "BossSpawnPercent": 75
     },
 
     "Traders" :
     {
-        "InsuranceTime": true,
+        "InsuranceTimeToggle": true,
         "InsuranceMinTime": 30,
         "InsuranceMaxTime": 120,
-        "InsuranceStorage": true,
+        "InsuranceStorageToggle": true,
         "InsuranceStorageTime": 900
     },
 
     "Insurance":
 	{
-		"InsuranceReturnChance": true,
+		"InsuranceReturnToggle": true,
 		"ReturnChance":90,
-        "InsurancePriceMultiplier": true,
+        "InsurancePriceToggle": true,
 		"InsuranceMulti":0.5
 	},
 
     "FleaMarket" :
     {
-        "Toggle": true,
+        "FleaToggle": true,
         "SellBase": 1,
         "SellUnderPrice": 1,
         "SellOverPrice": 1

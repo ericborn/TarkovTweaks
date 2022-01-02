@@ -13,7 +13,7 @@ class raid
         const locations = DB.locations
 
         // enable extended raid if true and raidTime is a number
-        if (config.Raids.EnableExtendedRaid && typeof config.Raids.raidTimer === 'number')
+        if (config.Raids.ExtendedRaidToggle && typeof config.Raids.raidTimer === 'number')
         {
             // for all maps if the map is not a base
             for (let map in locations) 
@@ -30,7 +30,7 @@ class raid
         }
 
         // enable increased boss spawn if true and spawn percent is a number
-        if (config.Raids.IncreasedBossChance && typeof config.Raids.BossSpawnPercent === 'number')
+        if (config.Raids.IncreasedBossChanceToggle && typeof config.Raids.BossSpawnPercent === 'number')
         {
             // for all locations
             for (let i in locations) 

@@ -13,12 +13,12 @@ class flea
         const Ragfair = DB.Ragfair
 
         // min/max insurances return times
-        if (config.FleaMarket.Toggle = true) 
+        if (config.FleaMarket.FleaToggle) 
         {
             Ragfair.sell.chance.base = config.FleaMarket.SellBase;
             Ragfair.sell.chance.underpriced = config.FleaMarket.SellUnderPrice;
             Ragfair.sell.chance.overprices = config.FleaMarket.SellOverPrice;
-            Logger.info("Insurance Return Time Activated");
+            Logger.info("FleaMarket Adjustments Activated");
         }
     }
 }
