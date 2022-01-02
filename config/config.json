@@ -28,8 +28,16 @@
     "FleaMarket" :
     {
         "FleaToggle": true,
-        "SellBase": 1,
+        "SellBase": 100,
         "SellUnderPrice": 1,
-        "SellOverPrice": 1
+        "SellOverPrice": 1,
+        "ReputationGain": 0.05,
+        "ReputationLoss": 0.01,
+        "Time" : 
+        {
+            "Base": 1,
+            "Min": 1,
+            "Max": 2
+        }
     }
 }

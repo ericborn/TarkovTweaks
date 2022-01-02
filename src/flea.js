@@ -18,6 +18,11 @@ class flea
             Ragfair.sell.chance.base = config.FleaMarket.SellBase;
             Ragfair.sell.chance.underpriced = config.FleaMarket.SellUnderPrice;
             Ragfair.sell.chance.overprices = config.FleaMarket.SellOverPrice;
+            Ragfair.sell.reputation.gain =  config.FleaMarket.ReputationGain;
+            Ragfair.sell.reputation.loss =  config.FleaMarket.ReputationLoss;
+            Ragfair.sell.time.base = config.FleaMarket.Time.Base;
+            Ragfair.sell.time.min = config.FleaMarket.Time.Min;
+            Ragfair.sell.time.max = config.FleaMarket.Time.Max;
             Logger.info("FleaMarket Adjustments Activated");
         }
     }
