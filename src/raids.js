@@ -1,8 +1,10 @@
+// mods pertaining to raid features
+
 "use strict";
 
 const config = require("../config/config.json");
 
-class mod
+class raid
 {
     static onLoad()
     {
@@ -21,10 +23,12 @@ class mod
                     // set exit and escape time to raidTimer
                     locations[map].base.exit_access_time = config.Raids.raidTimer
                     locations[map].base.escape_time_limit = config.Raids.raidTimer
+                    
                 }
             }
-            Logger.info("Hitman Mod: Extended Raid activated");
+            Logger.info("Extended Raid activated")
         }
+
         // enable increased boss spawn if true and spawn percent is a number
         if (config.Raids.IncreasedBossChance && typeof config.Raids.BossSpawnPercent === 'number')
         {
@@ -46,9 +50,9 @@ class mod
                     }
                 }
             }
-            Logger.info("Hitman Mod: Increased Boss Spawn activated");
+            Logger.info("Increased Boss Spawn activated") 
         }
     }
 }
 
-module.exports = mod;
+module.exports = raid;

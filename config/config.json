@@ -6,5 +6,30 @@
 
         "IncreasedBossChance": true,
         "BossSpawnPercent": 75
+    },
+
+    "Traders" :
+    {
+        "InsuranceTime": true,
+        "InsuranceMinTime": 30,
+        "InsuranceMaxTime": 120,
+        "InsuranceStorage": true,
+        "InsuranceStorageTime": 900
+    },
+
+    "Insurance":
+	{
+		"InsuranceReturnChance": true,
+		"ReturnChance":90,
+        "InsurancePriceMultiplier": true,
+		"InsuranceMulti":0.5
+	},
+
+    "FleaMarket" :
+    {
+        "Toggle": true,
+        "SellBase": 1,
+        "SellUnderPrice": 1,
+        "SellOverPrice": 1
     }
 }
