@@ -31,8 +31,8 @@
         "SellBase": 100,
         "SellUnderPrice": 1,
         "SellOverPrice": 1,
-        "ReputationGain": 0.05,
-        "ReputationLoss": 0.01,
+        "ReputationGain": 0.00005,
+        "ReputationLoss": 0.0000001,
         "Time" : 
         {
             "Base": 1,

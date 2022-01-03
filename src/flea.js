@@ -10,7 +10,7 @@ class flea
     {
 
         const DB = DatabaseServer.tables
-        const Ragfair = DB.Ragfair
+        const Ragfair = RagfairConfig
 
         // min/max insurances return times
         if (config.FleaMarket.FleaToggle) 
