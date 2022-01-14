@@ -11,8 +11,8 @@
     "Traders" :
     {
         "InsuranceTimeToggle": true,
-        "InsuranceMinTime": 30,
-        "InsuranceMaxTime": 120,
+        "InsuranceMinTime": 1,
+        "InsuranceMaxTime": 2,
         "InsuranceStorageToggle": true,
         "InsuranceStorageTime": 900
     },
@@ -31,8 +31,9 @@
         "SellBase": 100,
         "SellUnderPrice": 1,
         "SellOverPrice": 1,
-        "ReputationGain": 0.00005,
+        "ReputationGain": 0.0005,
         "ReputationLoss": 0.0000001,
+        "BSGBlacklist": false,
         "Time" : 
         {
             "Base": 1,

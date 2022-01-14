@@ -12,17 +12,25 @@ class flea
         const DB = DatabaseServer.tables
         const Ragfair = RagfairConfig
 
-        // min/max insurances return times
+        
         if (config.FleaMarket.FleaToggle) 
         {
+            // chance to sell depending on price
             Ragfair.sell.chance.base = config.FleaMarket.SellBase;
             Ragfair.sell.chance.underpriced = config.FleaMarket.SellUnderPrice;
             Ragfair.sell.chance.overprices = config.FleaMarket.SellOverPrice;
+
+            // flea rep gain/loss 
             Ragfair.sell.reputation.gain =  config.FleaMarket.ReputationGain;
             Ragfair.sell.reputation.loss =  config.FleaMarket.ReputationLoss;
+
+            // min/max flea sell times
             Ragfair.sell.time.base = config.FleaMarket.Time.Base;
             Ragfair.sell.time.min = config.FleaMarket.Time.Min;
             Ragfair.sell.time.max = config.FleaMarket.Time.Max;
+
+            // toggle items being blacklisted from the flea
+            Ragfair.dynamic.blacklist.enableBsgList = config.FleaMarket.BSGBlacklist;
             Logger.info("FleaMarket Adjustments Activated");
         }
     }
