@@ -11,6 +11,7 @@ class flea
 
         const DB = DatabaseServer.tables
         const Ragfair = RagfairConfig
+        const globals = DB.globals.config
 
         
         if (config.FleaMarket.FleaToggle) 
@@ -28,6 +29,9 @@ class flea
             Ragfair.sell.time.base = config.FleaMarket.Time.Base;
             Ragfair.sell.time.min = config.FleaMarket.Time.Min;
             Ragfair.sell.time.max = config.FleaMarket.Time.Max;
+
+            // max flea offers
+            globals.RagFair.maxActiveOfferCount[12].count = 69
 
             // toggle items being blacklisted from the flea
             Ragfair.dynamic.blacklist.enableBsgList = config.FleaMarket.BSGBlacklist;
