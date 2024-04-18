@@ -10,7 +10,7 @@
 
     "Traders" :
     {
-        "InsuranceTimeToggle": true,
+        "InsuranceTimeToggle": false,
         "InsuranceMinTime": 1,
         "InsuranceMaxTime": 2,
         "InsuranceStorageToggle": true,
@@ -19,7 +19,7 @@
 
     "Insurance":
 	{
-		"InsuranceReturnToggle": true,
+		"InsuranceReturnToggle": false,
 		"ReturnChance": 50,
         "InsurancePriceToggle": true,
 		"InsuranceMulti": 1
@@ -27,7 +27,7 @@
 
     "FleaMarket" :
     {
-        "FleaToggle": true,
+        "FleaToggle": false,
         "SellBase": 100,
         "SellUnderPrice": 1,
         "SellOverPrice": 1,
@@ -40,5 +40,22 @@
             "Min": 1,
             "Max": 2
         }
+    },
+
+    "Items":
+    {
+        "MagSizeToggle": true,
+        "LoadSpeed": true,
+        "MoneyStackSize": true,
+        "MoneyOnCharacter": true,
+        "UnlimitedKeyUse": true,
+        "Stamina": true,
+        "Inertia": true,
+        "EXP": true,
+        "Armor": true,
+        "ItemWeight": true,
+        "BotNames": true,
+        "Loot": true
     }
+
 }
