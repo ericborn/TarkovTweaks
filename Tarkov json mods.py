@@ -54,6 +54,7 @@ bot_path = install_drive + eft_version + 'Aki_Data/Server/configs/bot.json'
 
 map_path = install_drive + eft_version + 'Aki_Data/Server/database/locations/'
 trader_path = install_drive + eft_version + 'Aki_Data/Server/database/traders/'
+
 trader_img_path = install_drive + eft_version + 'Aki_Data/Server/images/traders/'
 ragfair_path = install_drive + eft_version + 'Aki_Data/Server/configs/ragfair.json'
 global_path = install_drive + eft_version + 'Aki_Data/Server/database/globals.json'
@@ -70,6 +71,7 @@ locales_path = install_drive + eft_version + 'Aki_Data/Server/database/locales/g
 profiles_path = install_drive + eft_version + 'Aki_Data/Server/database/templates/profiles.json'
 hideout_areas_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/areas.json'
 hideout_workout_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/qte.json'
+weather_path = trader_path = install_drive + eft_version + 'Aki_Data/Server/configs/weather.json'
 hideout_settings_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/settings.json'
 hideout_scav_case_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/scavcase.json'
 hideout_production_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/production.json'
@@ -100,6 +102,7 @@ bear_data = load_json(bear_bot_path)
 usec_data = load_json(usec_bot_path)
 locales_data = load_json(locales_path)
 ragfair_data = load_json(ragfair_path)
+weather_data = load_json(weather_path)
 profiles_data = load_json(profiles_path)
 location_data = load_json(location_path)
 insurance_data = load_json(insurance_path)
@@ -584,19 +587,19 @@ for material in global_data['config']['ArmorMaterials']:
 #######
 # health items mods
 #######
-# def mod_med_item(item_id, max_uses, hp_recovery_rate, stim_buff=''):
-#     item_data[item_id]['_props']['MaxHpResource'] = max_uses
-#     item_data[item_id]['_props']['hpResourceRate'] = hp_recovery_rate
-#     item_data[item_id]['_props']['StimulatorBuffs'] = stim_buff
+def mod_med_item(item_id, max_uses, hp_recovery_rate, stim_buff=''):
+    item_data[item_id]['_props']['MaxHpResource'] = max_uses
+    item_data[item_id]['_props']['hpResourceRate'] = hp_recovery_rate
+    item_data[item_id]['_props']['StimulatorBuffs'] = stim_buff
 
 # car, Salewa, grizzly, AI-2, IFAK, AFAK, sanitar ifak
 # mod_med_item(med_kit_ids[0], 30, 0, 'BuffsCarKit')
 # mod_med_item(med_kit_ids[1], 50, 0, 'BuffsSalewa')
 # mod_med_item(med_kit_ids[2], 100, 0, 'BuffsGrizzly')
-# mod_med_item(med_kit_ids[3], 500, 125)
-# mod_med_item(med_kit_ids[4], 1250, 175)
-# mod_med_item(med_kit_ids[5], 2000, 225)
-# mod_med_item(med_kit_ids[6], 2000, 225)
+mod_med_item(med_kit_ids[3], 500, 125)
+mod_med_item(med_kit_ids[4], 1250, 175)
+mod_med_item(med_kit_ids[5], 2000, 225)
+mod_med_item(med_kit_ids[6], 2000, 225)
 
 # item_data[med_kit_ids[3]]['_props']
 
@@ -1240,6 +1243,13 @@ peacekeeper_base_data['avatar'] = peacekeeper_base_data['avatar'].replace('jpg',
 # remove snarky chat message banter from bots
 chat_data['victim']['responseChancePercent'] = 0
 chat_data['killer']['responseChancePercent'] = 0
+
+# turn snow on
+try:
+    weather_data['forceWinterEvent'] = True
+except:
+    print("winter event not found")
+    pass
     
 ##########
 # save and close files
@@ -1252,6 +1262,7 @@ save_json(quest_data, quest_path)
 save_json(global_data, global_path)
 save_json(bear_data, bear_bot_path)
 save_json(usec_data, usec_bot_path)
+save_json(weather_data, weather_path)
 save_json(ragfair_data, ragfair_path)
 save_json(locales_data, locales_path)
 save_json(location_data, location_path)
