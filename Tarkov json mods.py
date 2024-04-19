@@ -321,6 +321,13 @@ global_data['config']['RestrictionsInRaid'][2]['MaxInRaid'] = 999999
 for key in key_keys:
     item_data[key]['_props']['MaximumNumberOfUsage'] = 0
 
+sicc_item_list = ['573474f924597738002c6174', '5734758f24597738025ee253',
+                  '62a09cfe4f842e1bd12da3e4', '59faf7ca86f7740dbe19f6c2',
+                  '62a09cb7a04c0c5c6e0a84f8', '590c651286f7741e566b6461',
+                  '62a091170b9d3c46de5b6cf2', '5bc9bdb8d4351e003562b8a1']
+# add items to sicc pouch
+item_data['5d235bb686f77443f4331278']['_props']['Grids'][0]['_props']['filters'][0]['Filter'].extend(sicc_item_list)
+
 ###
 # stamina/inertia changes
 ###
@@ -950,13 +957,17 @@ global_data['config']['RequirementReferences']['Alpinist'] = []
 ###
 # quest changes
 ###
+# quest with availableAfter time for testing
+#quest_data['625d6ffaf7308432be1d44c5']['conditions']['AvailableForStart'][0]
+
 # remove wait time until quest can be started
-# for quest in quest_data:
-#     try:
-#         if quest_data[quest]['conditions']['AvailableForStart'][0]['_parent'] == 'Quest':
-#             quest_data[quest]['conditions']['AvailableForStart'][0]['_props']['availableAfter'] = 0
-#     except:
-#         pass
+for quest in quest_data:
+    for start in quest_data[quest]['conditions']['AvailableForStart']:
+        try:
+            if start['availableAfter'] > 0 and start['conditionType'] == 'Quest':
+                start['availableAfter'] = 0
+        except:
+            pass
 
 # 8 hour daily quests
 quest_config_data['repeatableQuests'][0]['resetTime'] = 28880
