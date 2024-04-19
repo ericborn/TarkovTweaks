@@ -10,6 +10,7 @@ class item
     {
 
         //const DB = DatabaseServer.tables
+        const logger = container.resolve("WinstonLogger");
         const databaseServer = container.resolve("DatabaseServer");
         const configServer = container.resolve("ConfigServer");
         const tables = databaseServer.getTables();
@@ -132,6 +133,10 @@ class item
                     }
                 }
             }
+            catch (error) {
+                logger.warning("\nError with mag size");
+                log(error);
+            }
         }
 
         // load/unload speed
@@ -149,7 +154,10 @@ class item
                 item["5696686a4bdc2da3298b456a"]._props.StackMaxSize = 999999;
                 item["569668774bdc2da2298b4568"]._props.StackMaxSize = 999999;
             }
-
+            catch (error) {
+                logger.warning("\nError with money stack size");
+                log(error);
+            }
             
         }
 
@@ -166,12 +174,17 @@ class item
                 globals.RestrictionsInRaid[2].MaxInLobby = 999999;
                 globals.RestrictionsInRaid[2].MaxInRaid = 999999;
             } 
+            catch (error) {
+                logger.warning("\nError with money on character");
+                log(error);
+            }
         }
         
         // key uses
         if (config.Items.UnlimitedKeyUse) 
         {
-            try {
+            try 
+            {
                 for (const itemID in items)
                 {
                     const item = items[itemID];
@@ -181,7 +194,11 @@ class item
                         }
                     }
                 }
+            catch (error) {
+                logger.warning("\nError with key uses");
+                log(error);
             }
+        }
                     // money on character in/out of raid
         if (config.Items.Stamina) 
         {
@@ -209,6 +226,10 @@ class item
                 globals.Stamina.SitToStandConsumption = 0;
                 globals.Stamina.StandupConsumption.x = 0;
                 globals.Stamina.StandupConsumption.y = 0;
+            }
+            catch (error) {
+                logger.warning("\nError with stamina changes");
+                log(error);
             } 
         }
         if (config.Items.Inertia)
@@ -254,6 +275,10 @@ class item
                 globals.Inertia.TiltStartSideBackSpeed.x *= 1.3;
                 globals.Inertia.TiltStartSideBackSpeed.y *= 1.3;
             }
+            catch (error) {
+                logger.warning("\nError with inertia");
+                log(error);
+            }
         }
 
         if (config.Items.EXP)
@@ -270,6 +295,10 @@ class item
                 globals.exp.match_end.survived_exp_reward = 600;
                 globals.exp.match_end.survived_seconds_requirement = 60;
             }
+            catch (error) {
+                logger.warning("\nError with EXP");
+                log(error);
+            }
         }
 
         if (config.Items.Armor)
@@ -283,6 +312,10 @@ class item
                     armorMaterials.material.MaxRepairKitDegradation = 0.03;
                 }
             }
+            catch (error) {
+                logger.warning("\nError with armor materials");
+                log(error);
+            }
         }
         if (config.Items.ItemWeight)
         {
@@ -291,6 +324,10 @@ class item
                 {
                     items[itemId]._props.Weight *= 0.65;
                 }
+            }
+            catch (error) {
+                logger.warning("\nError with item weight");
+                log(error);
             }
         }
 
@@ -301,16 +338,24 @@ class item
                 bearNames.firstName = bearNameList;
                 usecNames.firstName = usecNameList;
             }
+            catch (error) {
+                logger.warning("\nError with bot names");
+                log(error);
+            }
         }
 
         if (config.Items.Loot)
         {
             try
             {
-                globals.GlobalLootChanceModifier *= 1.5
+                globals.GlobalLootChanceModifier *= 1.5;
+            }
+            catch (error) {
+                logger.warning("\nError with loot changes");
+                log(error);
             }
         }
     }
 }
 
-module.exports = trade;
+module.exports = item;
