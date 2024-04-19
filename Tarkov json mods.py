@@ -51,13 +51,14 @@ peacekeeper_id = '5935c25fb3acc3127c3d8cd9'
 mod_trader_img_path = 'C:/Users/Eric/Desktop/eft/mods/traders/'
 player_profile_path = install_drive + eft_version + 'user/profiles/'
 bot_path = install_drive + eft_version + 'Aki_Data/Server/configs/bot.json'
-bot_types_path = install_drive + eft_version + 'Aki_Data/Server/database/bots/types/'
+
 map_path = install_drive + eft_version + 'Aki_Data/Server/database/locations/'
 trader_path = install_drive + eft_version + 'Aki_Data/Server/database/traders/'
 trader_img_path = install_drive + eft_version + 'Aki_Data/Server/images/traders/'
 ragfair_path = install_drive + eft_version + 'Aki_Data/Server/configs/ragfair.json'
 global_path = install_drive + eft_version + 'Aki_Data/Server/database/globals.json'
 location_path = install_drive + eft_version + 'Aki_Data/Server/configs/location.json'
+bot_types_path = install_drive + eft_version + 'Aki_Data/Server/database/bots/types/'
 quest_config_path = install_drive + eft_version + 'Aki_Data/Server/configs/quest.json'
 insurance_path = install_drive + eft_version + 'Aki_Data/Server/configs/insurance.json'
 chat_path = install_drive + eft_version + 'Aki_Data/Server/configs/pmcchatresponse.json'
@@ -321,11 +322,70 @@ global_data['config']['RestrictionsInRaid'][2]['MaxInRaid'] = 999999
 for key in key_keys:
     item_data[key]['_props']['MaximumNumberOfUsage'] = 0
 
+blacklist_keys = ["59136f6f86f774447a1ed173", #Folding car key
+                  "5a0f045e86f7745b0f0d0e42", #Gas station safe key
+                  "5a0ea69f86f7741cd5406619", #Health Resort east wing office room 108 key
+                  "5a0ee72c86f77436955d3435", #Health Resort east wing room 213 key
+                  "5a0ee76686f7743698200d5c", #Health Resort east wing room 216 key
+                  "5a0eedb386f77403506300be", #Health Resort east wing room 322 key
+                  "5a0ec70e86f7742c0b518fba", #Health Resort west wing room 207 key
+                  "5a0eeb1a86f774688b70aa5c", #Health Resort west wing room 303 key
+                  "5a0eeb8e86f77461257ed71a", #Health Resort west wing room 309 key
+                  "5a13ee1986f774794d4c14cd", #Health Resort west wing room 323 key
+                  "5a0eebed86f77461230ddb3d", #Health Resort west wing room 325 key
+                  "63a39f18c2d53c2c6839c1d3", #Pinewood hotel room 206 key
+                  "6391fcf5744e45201147080f", #Primorsky Ave apartment key
+                  "5d80cb8786f774405611c7d9", #RB-PP key
+                  "5a0f006986f7741ffd2fe484"] #Weather station safe key
+
+
+# blacklist/mark all useless keys
+for key in blacklist_keys:
+    item_data[key]['_props']['BackgroundColor'] = 'red'
+
+# TODO
+# !!!current code doesnt work!!!
+# examples found in RaiRaiTheRaichu-UselessKeyBlacklist-1.2.1 mod
+# # remove keys from bots spawn
+# for bot in bot_type_list:
+#     keys_to_delete = []
+#     bot_data = load_json(bot_types_path+bot)
+#     #print(bot_data['inventory']['items']['Pockets'])
+#     for loot in bot_data['inventory']['items']['Pockets']:
+#         if loot in blacklist_keys:
+#             print("found")
+#             keys_to_delete.append((bot, loot))
+    
+#     for bot, loot in keys_to_delete:
+#         del bot_data['inventory']['items']['Pockets'][loot]
+
+
+# keys_to_delete = []
+
+# for bot in bot_type_list:
+#     bot_data = load_json(bot_types_path + bot)
+#     for loot in bot_data['inventory']['items']['Pockets']:
+#         if loot in blacklist_keys:
+#             keys_to_delete.append((bot, loot))
+
+# # Delete the keys outside the loop
+# for bot, loot in keys_to_delete:
+#     del load_json(bot_types_path + bot)['inventory']['items']['Pockets'][loot]
+
+            
+    # :
+    #     print(bot_data['health']['BodyParts'][0][bodyParts]['min'])
+    #     bot_data['health']['BodyParts'][0][bodyParts]['min'] *= bot_health_mod_multi
+    #     bot_data['health']['BodyParts'][0][bodyParts]['max'] *= bot_health_mod_multi 
+    
+    # save_json(bot_data, bot_types_path+bot)  
+
+# add extra items that can be stored in the sicc pouch
 sicc_item_list = ['573474f924597738002c6174', '5734758f24597738025ee253',
                   '62a09cfe4f842e1bd12da3e4', '59faf7ca86f7740dbe19f6c2',
                   '62a09cb7a04c0c5c6e0a84f8', '590c651286f7741e566b6461',
                   '62a091170b9d3c46de5b6cf2', '5bc9bdb8d4351e003562b8a1']
-# add items to sicc pouch
+
 item_data['5d235bb686f77443f4331278']['_props']['Grids'][0]['_props']['filters'][0]['Filter'].extend(sicc_item_list)
 
 ###
