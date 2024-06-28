@@ -134,8 +134,8 @@ class Mod {
 
         // bleed, surg kits, pain meds
         const otherMedIds = ["5751a25924597722c463c472", "5d02778e86f774203e7dedbe", 
-                       "5d02797c86f774203f38e30a", "5e8488fa988a8701445df1e4",
-                       "5af0548586f7743a532b7e99", "5af0454c86f7746bf20992e8"];
+                             "5d02797c86f774203f38e30a", "5e8488fa988a8701445df1e4",
+                             "5af0548586f7743a532b7e99", "5af0454c86f7746bf20992e8"];
 
         // template IDs for money amount restricted on a character
         const moneyIDs = ["5449016a4bdc2d6f028b456f", "5696686a4bdc2da3298b456a",
@@ -407,9 +407,11 @@ class Mod {
             try {
                 for (const itemID in items)
                 {
-                    if (otherMedIds.includes(items[itemID])) {
-                        items[itemID]._props.MaxHpResource *= 3;
-                    }
+                    const item = items[itemID];
+                    if(otherMedIds.includes(itemID))
+                    {
+                        item._props.MaxHpResource *= 3;
+                    }  
                 }
             }
             catch (error) {
@@ -461,7 +463,10 @@ class Mod {
             try {
                 for (const itemID in items)
                 {
-                    items[itemID]._props.Weight *= 0.65;
+                    if (typeof items[itemID]._props.Weight === "number")
+                    {
+                        items[itemID]._props.Weight *= 0.65;
+                    }
                 }
             }
             catch (error) {
