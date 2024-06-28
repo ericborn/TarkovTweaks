@@ -20,8 +20,8 @@ def save_json(item_data, file_path):
         outfile.write(json_obj)
     outfile.close()
 
-install_drive = 'C:/'
-eft_version = 'eft3.8.0/'
+install_drive = 'E:/'
+eft_version = 'SPT/'
 
 base_file_name = 'base.json'
 assort_file_name = 'assort.json'
@@ -48,12 +48,13 @@ mechanic_id = '5a7c2eca46aef81a7ca2145d'
 therapist_id = '54cb57776803fa99248b456e'
 peacekeeper_id = '5935c25fb3acc3127c3d8cd9'
 
-mod_trader_img_path = 'C:/Users/Eric/Desktop/eft/mods/traders/'
+mod_trader_img_path = 'C:/eft mods/traders/'
 player_profile_path = install_drive + eft_version + 'user/profiles/'
 bot_path = install_drive + eft_version + 'Aki_Data/Server/configs/bot.json'
 
 map_path = install_drive + eft_version + 'Aki_Data/Server/database/locations/'
 trader_path = install_drive + eft_version + 'Aki_Data/Server/database/traders/'
+weather_path = install_drive + eft_version + 'Aki_Data/Server/configs/weather.json'
 
 trader_img_path = install_drive + eft_version + 'Aki_Data/Server/images/traders/'
 ragfair_path = install_drive + eft_version + 'Aki_Data/Server/configs/ragfair.json'
@@ -71,7 +72,6 @@ locales_path = install_drive + eft_version + 'Aki_Data/Server/database/locales/g
 profiles_path = install_drive + eft_version + 'Aki_Data/Server/database/templates/profiles.json'
 hideout_areas_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/areas.json'
 hideout_workout_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/qte.json'
-weather_path = trader_path = install_drive + eft_version + 'Aki_Data/Server/configs/weather.json'
 hideout_settings_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/settings.json'
 hideout_scav_case_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/scavcase.json'
 hideout_production_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/production.json'
@@ -619,7 +619,7 @@ mod_med_item(med_kit_ids[6], 2000, 225)
 # add_med_buff('BuffsGrizzly', 600, 20)
 if item_data['5751a25924597722c463c472']['_props']['MaxHpResource'] == 2:
     for med in other_med_ids:
-        item_data[med]['_props']['MaxHpResource'] *= 10
+        item_data[med]['_props']['MaxHpResource'] *= 3
 
 ###
 # ammo adjusts

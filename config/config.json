@@ -55,7 +55,10 @@
         "Armor": true,
         "ItemWeight": true,
         "BotNames": true,
-        "Loot": true
+        "Loot": true,
+        "Meds": true,
+        "Ammo": true,
+        "Hideout": true
     }
 
 }
