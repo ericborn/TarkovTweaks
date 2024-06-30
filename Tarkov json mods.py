@@ -630,11 +630,11 @@ if item_data['5751a25924597722c463c472']['_props']['MaxHpResource'] == 2:
 
 # distinct_ammo = set(distinct_ammo)
 
-# for key in ammo_keys:
-#     # set all ammo max stack to 600
-#     item_data[key]['_props']['StackMaxSize'] = 600
+for key in ammo_keys:
+    # set all ammo max stack to 600
+    item_data[key]['_props']['StackMaxSize'] = 600
     
-    # set max ammo stack by ammo type
+    # # set max ammo stack by ammo type
     # if item_data[key]['_props']['StackMaxSize'] in [15, 20]:
     #     item_data[key]['_props']['StackMaxSize'] = 100
     # if item_data[key]['_props']['StackMaxSize'] in [30, 40, 50, 70]:
@@ -687,19 +687,19 @@ if item_data['5d03794386f77420415576f5']['_props']['Weight'] > 40:
 # hideout_settings_data['airFilterUnitFlowRate'] = 0.002361
 # hideout_settings_data['gpuBoostRate'] = 0.041225
 
-# # set construction of any hideout areas to 1
-# # iterate through areas looking for bitcoin farm id 5d494a445b56502f18c98a10
-# # iterate through stages of the farm looking for bonus attributes with
-# # a filter for the graphics card id 57347ca924597744596b4e71
-# # multiply the bonus by 10
-# for area in hideout_areas_data:
-#     if area['_id'] == '5d494a445b56502f18c98a10':
-#         for key in area['stages'].keys():
-#             if area['stages'][key]['bonuses']:
-#                 if area['stages'][key]['bonuses'][0]['filter'][0] == '57347ca924597744596b4e71':
-#                     area['stages'][key]['bonuses'][0]['value'] += 10   
-#     for key in area['stages'].keys():
-#         area['stages'][key]['constructionTime'] = 1
+# set construction of any hideout areas to 1
+# iterate through areas looking for bitcoin farm id 5d494a445b56502f18c98a10
+# iterate through stages of the farm looking for bonus attributes with
+# a filter for the graphics card id 57347ca924597744596b4e71
+# multiply the bonus by 10
+for area in hideout_areas_data:
+    if area['_id'] == '5d494a445b56502f18c98a10':
+        for key in area['stages'].keys():
+            if area['stages'][key]['bonuses']:
+                if area['stages'][key]['bonuses'][0]['filter'][0] == '57347ca924597744596b4e71':
+                    area['stages'][key]['bonuses'][0]['value'] += 10   
+    for key in area['stages'].keys():
+        area['stages'][key]['constructionTime'] = 1
 
 # # set production of all items to 1 
 # for items in hideout_production_data:

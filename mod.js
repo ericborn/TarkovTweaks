@@ -440,23 +440,58 @@ class Mod {
         // set hideout construction time to 1
         if (config.Items.Hideout)
         {
+            // expand hideout stash per upgrade tier
             try {
-                for (const areaID in hideout)
+                items["566abbc34bdc2d92178b4576"]._props.Grids[0]._props.cellsV = 30
+                items["5811ce572459770cba1a34ea"]._props.Grids[0]._props.cellsV = 60
+                items["5811ce662459770f6f490f32"]._props.Grids[0]._props.cellsV = 100
+                items["5811ce772459770e9e5f9532"]._props.Grids[0]._props.cellsV = 150
+            } catch (error) {
+                logger.warning("\nHideoutOptions.StashOptions.BiggerStash failed. Send bug report. Continue safely.")
+                
+                    }
+            // reduce loyalty level by 1
+            const originalStages = tables.hideout.areas.find((x) => x._id == "5d484fc0654e76006657e0ab").stages
+                for (const stage in originalStages) {
+                    try {
+                        originalStages[stage].requirements
+                            .filter((x) => x.loyaltyLevel != undefined)
+                            .forEach((x) => {
+                                x.loyaltyLevel -= 1
+                            })
+                    } catch (error) {
+                        logger.warning("\nHideoutOptions.StashOptions.Easier_Loyalty failed. Send bug report. Continue safely.")
+                        
+                    }
+                }
+            // set construction time to 1 if the time is greater than 0
+            try {
+                for (const area in tables.hideout.areas) 
                 {
-                    for (const stage in hideout[areaID].stages)
+                    for (const stage in tables.hideout.areas[area].stages) 
                     {
-                        if (stage.constructionTime > 0)
+                        if (tables.hideout.areas[area].stages[stage].constructionTime > 0)
                         {
-                            stage.constructionTime = 1;
-                        }
+                            tables.hideout.areas[area].stages[stage].constructionTime = 1
+                        } 
                     }
                 }
             }
             catch (error) {
                 logger.warning("\nError with Hideout construction time");  
             }
+            // make stash increase costs 1/10th
+            try {
+                originalStages[stage].requirements
+                    .filter((x) => x.templateId == "5449016a4bdc2d6f028b456f" || x.templateId == "569668774bdc2da2298b4568")
+                    .forEach((x) => {
+                        x.count /= 10
+                    })
+            } catch (error) {
+                logger.warning("\nHideoutOptions.StashOptions.Less_Currency_For_Construction failed. Send bug report. Continue safely.")
+                
+            }
         }
-
         // decrease weight of all items by 35%
         if (config.Items.ItemWeight)
         {
@@ -486,6 +521,21 @@ class Mod {
             }
         }
 
+        try
+        {
+            for (const location in tables.locations) {
+                if (location == "base") continue;
+
+                this.ref.tables.locations[location].base.EscapeTimeLimit =
+                  modConfig.Raid.TimeLimit * 3;
+                this.ref.tables.locations[location].base.EscapeTimeLimitCoop =
+                  modConfig.Raid.TimeLimit * 3;
+            }
+        }
+        catch (error) {
+            logger.warning("\nError with EscapeTimeLimit");
+        }
+
 /*        if (config.Items.Loot)
         {
             try
@@ -496,6 +546,23 @@ class Mod {
                 logger.warning("\nError with loot changes"); 
             }
         }*/
+        // set collector quest to become available at level 5
+        tables.templates.quests["5c51aac186f77432ea65c552"].conditions.AvailableForFinish.push(
+            tables.templates.quests["5c51aac186f77432ea65c552"].conditions.AvailableForStart[0])
+        tables.templates.quests["5c51aac186f77432ea65c552"].conditions.AvailableForStart = [
+            {
+                "compareMethod": ">=",
+                "conditionType": "Level",
+                "dynamicLocale": false,
+                "globalQuestCounterId": "",
+                "id": "5d777f5d86f7742fa901bc77",
+                "index": 0,
+                "parentId": "",
+                "value": 5,
+                "visibilityConditions": [],
+                "target": ""
+            }
+        ]
     }
 }
 
