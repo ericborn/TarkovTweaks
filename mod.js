@@ -1,4 +1,11 @@
 "use strict";
+/*import { DependencyContainer } from "tsyringe";
+
+import { IPostSptLoadMod } from "@spt/models/external/IPostSptLoadMod";
+import { ILogger } from "@spt/models/spt/utils/ILogger";
+import { ConfigServer } from "@spt/servers/ConfigServer";
+import { ConfigTypes } from "@spt/models/enums/ConfigTypes";
+import { ILocationConfig } from "@spt/models/spt/config/ILocationConfig";*/
 
 const config = require("./config/config.json");
 
@@ -9,6 +16,7 @@ class Mod {
         const databaseServer = container.resolve("DatabaseServer");
         const configServer = container.resolve("ConfigServer");
         const tables = databaseServer.getTables();
+        const locationConfig: ILocationConfig = configServer.getConfig<ILocationConfig>(ConfigTypes.LOCATION);
         const items = tables.templates.items;
         const globals = tables.globals.config;
         const armorMaterials = globals.ArmorMaterials;
@@ -16,6 +24,12 @@ class Mod {
         const usecNames = tables.bots.types.usec;
         const hideout = tables.hideout.areas;
         //const quest = QuestConfig;
+
+        logger.warning(configs);
+
+        // unsure if this works
+        //const chatValues = configServer.getConfig(ConfigTypes.ConfigTypes.PMCCHATRESPONSE);
+        //const locationValues = configServer.getConfig(ConfigTypes.ConfigTypes.LOCATION);
 
         const bearNameList = ["15NUNDR","1STLINE","1V1IRL","2RETSGUY","360NSCP","5FNGRS",
                               "6969DKS","90S E","AGATHA","ALINWRE","ALXFACE","ANOOSE1",
@@ -521,6 +535,16 @@ class Mod {
             }
         }
 
+        // disable snarky chat responses from bots
+        try
+        {
+            chatValues.victim.responseChancePercent = 0;
+            chatValues.killer.responseChancePercent = 0;
+        }
+        catch (error) {
+            logger.warning("\nError with chatValues");
+        }
+
         try
         {
             for (const location in tables.locations) {
@@ -534,6 +558,20 @@ class Mod {
         }
         catch (error) {
             logger.warning("\nError with EscapeTimeLimit");
+        }
+        try
+        {
+            for (const location in locationValues.customWaves.boss)
+            {
+                const spawn = locationValues.customWaves.boss[location]
+                for(const i = 0; i < spawn.length; i++)
+                {
+                    spawn[i].BossChance = 5;
+                }
+            }
+        }
+        catch (error) {
+            logger.warning("\nError with Boss spawn %");
         }
 
 /*        if (config.Items.Loot)
