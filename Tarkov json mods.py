@@ -15,20 +15,25 @@ def load_json(file_path):
     return item_data
 
 def save_json(item_data, file_path):
+    if (len(item_data) == 0):
+        print('no data')
+        return
     json_obj = json.dumps(item_data, indent=4)
     with open(file_path, 'w') as outfile:
         outfile.write(json_obj)
     outfile.close()
 
-install_drive = 'E:/'
+
+install_drive = 'C:/'
 eft_version = 'SPT/'
 
 base_file_name = 'base.json'
 assort_file_name = 'assort.json'
-case_id = '5795f317245977243854e041'
 
 bag_parent = '5448e53e4bdc2d60728b4567'
+case_id = '5795f317245977243854e041'
 key_parent = '5c99f98d86f7745c314214b3'
+keycard_parent = '5c164d2286f774194c5e69fa'
 rig_parent = '5448e5284bdc2dcb718b4567'
 mag_parent = '5448bc234bdc2d3c308b4569'
 ammo_parent = '5485a8684bdc2da71d8b4567'
@@ -39,6 +44,7 @@ headwear_parent = '5a341c4086f77401f2541505'
 body_armor_parent = '5448e54d4bdc2dcc718b4568'
 armored_equipment_parent = '57bef4c42459772e8d35a53b'
 
+# trader.json id
 skier_id = '58330581ace78e27b8b10cee'
 fence_id = '579dc571d53a0658a154fbec'
 prapor_id = '54cb50c76803fa8b248b4571'
@@ -47,34 +53,51 @@ jaeger_id = '5c0647fdd443bc2504c2d371'
 mechanic_id = '5a7c2eca46aef81a7ca2145d'
 therapist_id = '54cb57776803fa99248b456e'
 peacekeeper_id = '5935c25fb3acc3127c3d8cd9'
+lightkeeper_id = '6864e812f9fe664cb8b8e152' # called x in trader.json, lightkeeper unlisted
+ref_id = '6617beeaa9cfa777ca915b7c'
+btr_id = '656f0f98d80a697f855d34b1'
+
+# image id
+skier_photo_id = '59b91cb486f77469a81232e5'
+fence_photo_id = '579dc571d53a0658a154fbec'
+prapor_photo_id = '59b91ca086f77469a81232e4'
+ragman_photo_id = '5ac3b86a86f77461491d1ad8'
+jaeger_photo_id = '5c06531a86f7746319710e1b'
+mechanic_photo_id = '5a7c2ebb86f7746e324a06ab'
+therapist_photo_id = '59b91cab86f77469aa5343ca'
+peacekeeper_photo_id = '59b91cbd86f77469aa5343cb'
+lightkeeper_photo_id = '638f541a29ffd1183d187f57' # called x in trader.json, lightkeeper unlisted
+ref_photo_id = '6617beeaa9cfa777ca915b7c'
+btr_photo_id = '656f0f98d80a697f855d34b1'
 
 mod_trader_img_path = 'C:/eft mods/traders/'
-player_profile_path = install_drive + eft_version + 'user/profiles/'
-bot_path = install_drive + eft_version + 'Aki_Data/Server/configs/bot.json'
+player_profile_path = install_drive + eft_version + 'SPT_Runtime/user/profiles/'
+bot_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/configs/bot.json'
 
-map_path = install_drive + eft_version + 'Aki_Data/Server/database/locations/'
-trader_path = install_drive + eft_version + 'Aki_Data/Server/database/traders/'
-weather_path = install_drive + eft_version + 'Aki_Data/Server/configs/weather.json'
+map_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/locations/'
+trader_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/traders/'
+weather_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/configs/weather.json'
 
-trader_img_path = install_drive + eft_version + 'Aki_Data/Server/images/traders/'
-ragfair_path = install_drive + eft_version + 'Aki_Data/Server/configs/ragfair.json'
-global_path = install_drive + eft_version + 'Aki_Data/Server/database/globals.json'
-location_path = install_drive + eft_version + 'Aki_Data/Server/configs/location.json'
-bot_types_path = install_drive + eft_version + 'Aki_Data/Server/database/bots/types/'
-quest_config_path = install_drive + eft_version + 'Aki_Data/Server/configs/quest.json'
-insurance_path = install_drive + eft_version + 'Aki_Data/Server/configs/insurance.json'
-chat_path = install_drive + eft_version + 'Aki_Data/Server/configs/pmcchatresponse.json'
-item_path = install_drive + eft_version + 'Aki_Data/Server/database/templates/items.json'
-quest_path = install_drive + eft_version + 'Aki_Data/Server/database/templates/quests.json'
-bear_bot_path = install_drive + eft_version + 'Aki_Data/Server/database/bots/types/bear.json'
-usec_bot_path = install_drive + eft_version + 'Aki_Data/Server/database/bots/types/usec.json'
-locales_path = install_drive + eft_version + 'Aki_Data/Server/database/locales/global/en.json'
-profiles_path = install_drive + eft_version + 'Aki_Data/Server/database/templates/profiles.json'
-hideout_areas_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/areas.json'
-hideout_workout_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/qte.json'
-hideout_settings_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/settings.json'
-hideout_scav_case_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/scavcase.json'
-hideout_production_path = install_drive + eft_version + 'Aki_Data/Server/database/hideout/production.json'
+trader_img_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/images/trader/avatar/'
+ragfair_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/configs/ragfair.json'
+global_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/globals.json'
+location_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/configs/location.json'
+bot_types_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/bots/types/'
+quest_config_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/configs/quest.json'
+insurance_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/configs/insurance.json'
+chat_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/configs/pmcchatresponse.json'
+item_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/templates/items.json'
+quest_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/templates/quests.json'
+bear_bot_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/bots/types/bear.json'
+usec_bot_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/bots/types/usec.json'
+lab_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/locations/laboratory/base.json'
+locales_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/locales/global/en.json'
+profiles_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/templates/profiles.json'
+hideout_areas_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/hideout/areas.json'
+hideout_workout_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/hideout/qte.json'
+hideout_settings_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/hideout/settings.json'
+#hideout_scav_case_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/hideout/scavcase.json'
+hideout_production_path = install_drive + eft_version + 'SPT_Runtime/SPT_Data/database/hideout/production.json'
 
 skier_base_path = trader_path + skier_id + '/' + base_file_name
 fence_base_path = trader_path + fence_id + '/' + base_file_name
@@ -105,12 +128,13 @@ ragfair_data = load_json(ragfair_path)
 weather_data = load_json(weather_path)
 profiles_data = load_json(profiles_path)
 location_data = load_json(location_path)
+lab_data = load_json(lab_path)
 insurance_data = load_json(insurance_path)
 quest_config_data = load_json(quest_config_path)
 hideout_areas_data = load_json(hideout_areas_path)
 hideout_workout_data = load_json(hideout_workout_path) 
 hideout_settings_data = load_json(hideout_settings_path)
-hideout_scav_case_data = load_json(hideout_scav_case_path)
+#hideout_scav_case_data = load_json(hideout_scav_case_path)
 hideout_production_data = load_json(hideout_production_path)
 
 skier_base_data = load_json(skier_base_path)
@@ -138,10 +162,11 @@ money_list = ['5449016a4bdc2d6f028b456f', '5696686a4bdc2da3298b456a',
               '569668774bdc2da2298b4568']
 
 # secure containers
-# alpha, beta, epsilon, gamma, Kappa, waist pouch
+# alpha, beta, epsilon, gamma, Kappa, waist pouch, new gamma
 container_list = ['544a11ac4bdc2d470e8b456a', '5857a8b324597729ab0a0e7d',
                   '59db794186f77448bc595262', '5857a8bc2459772bad15db29',
-                  '5c093ca986f7740a1867ab12', '5732ee6a24597719ae0c0281']
+                  '5c093ca986f7740a1867ab12', '5732ee6a24597719ae0c0281',
+                  '665ee77ccf2d642e98220bca']
 
 # car, Salewa, grizzly, IFAK, AI-2, AFAK, sanitar ifak
 med_kit_ids = ['590c661e86f7741e566b646a', '544fb45d4bdc2dee738b4568',
@@ -158,6 +183,7 @@ repair_key_ids = ['591094e086f7747caa7bb2ef', '5910968f86f77425cf569c32']
 
 bag_keys = []
 key_keys = []
+keycard_keys = []
 rig_keys = []
 mag_keys = []
 ammo_keys = []
@@ -189,6 +215,10 @@ for key in item_data.keys():
     # keys
     if item_data[key]['_parent'] == key_parent:
         key_keys.append(key)
+        
+    # keycards
+    if item_data[key]['_parent'] == keycard_parent:
+        keycard_keys.append(key)
     
     # mags
     if item_data[key]['_parent'] == mag_parent:
@@ -263,6 +293,7 @@ if item_data['59d625f086f774661516605d']['_props']['Cartridges'][0]['_max_count'
                 item_data[key]['_props']['ExtraSizeDown'] = 1
     
         except:
+            print("error")
             pass
         
     
@@ -287,6 +318,9 @@ global_data['config']['BaseUnloadTime'] = 0.15
 for money in money_list:
     item_data[money]['_props']['StackMaxSize'] = 999999
 
+# update GP coin stack size
+item_data['5d235b4d86f7742e017bc88a']['_props']['StackMaxSize'] = 9999
+
 # max money in raid
 global_data['config']['RestrictionsInRaid'][0]['MaxInLobby'] = 999999
 global_data['config']['RestrictionsInRaid'][0]['MaxInRaid'] = 999999
@@ -297,33 +331,36 @@ global_data['config']['RestrictionsInRaid'][1]['MaxInRaid'] = 999999
 global_data['config']['RestrictionsInRaid'][2]['MaxInLobby'] = 999999
 global_data['config']['RestrictionsInRaid'][2]['MaxInRaid'] = 999999
 
-# # expand bags
-# for bags in bag_keys:
-#     item_data[bags]['_props']['Grids'][0]['_props']['cellsH'] += 2
-#     item_data[bags]['_props']['Grids'][0]['_props']['cellsV'] += 2
+# expand bags
+for bags in bag_keys:
+    item_data[bags]['_props']['Grids'][0]['_props']['cellsH'] += 2
+    item_data[bags]['_props']['Grids'][0]['_props']['cellsV'] += 2
 
-# # expand secure containers
-# for container in container_list:
-#     item_data[container]['_props']['Grids'][0]['_props']['cellsH'] += 2
-#     item_data[container]['_props']['Grids'][0]['_props']['cellsV'] += 2
+# expand secure containers
+for container in container_list:
+    item_data[container]['_props']['Grids'][0]['_props']['cellsH'] += 2
+    item_data[container]['_props']['Grids'][0]['_props']['cellsV'] += 2
     
-#     item_data[container]['_props']['Grids'][0]['_props']['filters'] = []
+    item_data[container]['_props']['Grids'][0]['_props']['filters'] = []
 
-# # expand cases
-# # make all cases 2x2 larger and remove item filter
-# for case in case_keys:
-#     item_data[case]['_props']['Grids'][0]['_props']['cellsH'] += 2
-#     item_data[case]['_props']['Grids'][0]['_props']['cellsV'] += 2
+# expand cases
+# make all cases 2x2 larger and remove item filter
+for case in case_keys:
+    item_data[case]['_props']['Grids'][0]['_props']['cellsH'] += 2
+    item_data[case]['_props']['Grids'][0]['_props']['cellsV'] += 2
     
-#     item_data[case]['_props']['Grids'][0]['_props']['filters'] = []
+    item_data[case]['_props']['Grids'][0]['_props']['filters'] = []
 
 # manually set the keytool to be 6x6
-# item_data[key_tool_id]['_props']['Grids'][0]['_props']['cellsH'] = 6
-# item_data[key_tool_id]['_props']['Grids'][0]['_props']['cellsV'] = 6
+item_data[key_tool_id]['_props']['Grids'][0]['_props']['cellsH'] = 6
+item_data[key_tool_id]['_props']['Grids'][0]['_props']['cellsV'] = 6
 
-# set all keys to unlimited uses
+# set all keys and keycards to unlimited uses
 for key in key_keys:
     item_data[key]['_props']['MaximumNumberOfUsage'] = 0
+    
+for card in keycard_keys:
+    item_data[card]['_props']['MaximumNumberOfUsage'] = 0
 
 blacklist_keys = ["59136f6f86f774447a1ed173", #Folding car key
                   "5a0f045e86f7745b0f0d0e42", #Gas station safe key
@@ -345,6 +382,10 @@ blacklist_keys = ["59136f6f86f774447a1ed173", #Folding car key
 # blacklist/mark all useless keys
 for key in blacklist_keys:
     item_data[key]['_props']['BackgroundColor'] = 'red'
+
+# remove keycard requirement for labs
+lab_data['AccessKeys'] = []
+lab_data['AccessKeysPvE'] = []
 
 # TODO
 # !!!current code doesnt work!!!
@@ -384,12 +425,12 @@ for key in blacklist_keys:
     # save_json(bot_data, bot_types_path+bot)  
 
 # add extra items that can be stored in the sicc pouch
-sicc_item_list = ['573474f924597738002c6174', '5734758f24597738025ee253',
-                  '62a09cfe4f842e1bd12da3e4', '59faf7ca86f7740dbe19f6c2',
-                  '62a09cb7a04c0c5c6e0a84f8', '590c651286f7741e566b6461',
-                  '62a091170b9d3c46de5b6cf2', '5bc9bdb8d4351e003562b8a1']
+# sicc_item_list = ['573474f924597738002c6174', '5734758f24597738025ee253',
+#                   '62a09cfe4f842e1bd12da3e4', '59faf7ca86f7740dbe19f6c2',
+#                   '62a09cb7a04c0c5c6e0a84f8', '590c651286f7741e566b6461',
+#                   '62a091170b9d3c46de5b6cf2', '5bc9bdb8d4351e003562b8a1']
 
-item_data['5d235bb686f77443f4331278']['_props']['Grids'][0]['_props']['filters'][0]['Filter'].extend(sicc_item_list)
+# item_data['5d235bb686f77443f4331278']['_props']['Grids'][0]['_props']['filters'][0]['Filter'].extend(sicc_item_list)
 
 ###
 # stamina/inertia changes
@@ -643,12 +684,26 @@ for key in ammo_keys:
 # Adjust weight of all items
 # check against tank battery
 weight_modifier = 0.65
+ammo_weight_modifier = 0.05
 if item_data['5d03794386f77420415576f5']['_props']['Weight'] > 40:
     for key in all_keys:
         try:
             item_data[key]['_props']['Weight'] *= weight_modifier
         except:
             pass
+        
+for key in ammo_keys:
+    try:
+        item_data[key]['_props']['Weight'] *= ammo_weight_modifier
+    except:
+        pass
+
+for key in bag_keys:
+    try:
+        item_data[key]['_props']['Weight'] *= ammo_weight_modifier
+    except:
+        pass
+    
 ####
 # buy/sell all items on flea
 # make all items be discardable without deleting the item during raid
@@ -679,13 +734,13 @@ if item_data['5d03794386f77420415576f5']['_props']['Weight'] > 40:
 # # hideout
 # ####
 # # smaller is better
-# # 'generatorFuelFlowRate': 0.001319444444444,
-# # 'airFilterUnitFlowRate': 0.004722222222222,
-# # larger is better
-# # 'gpuBoostRate': 0.041225
-# hideout_settings_data['generatorFuelFlowRate'] = 0.00065972
-# hideout_settings_data['airFilterUnitFlowRate'] = 0.002361
-# hideout_settings_data['gpuBoostRate'] = 0.041225
+# 'generatorFuelFlowRate': 0.001319444444444,
+# 'airFilterUnitFlowRate': 0.004722222222222,
+# larger is better
+# 'gpuBoostRate': 0.041225
+hideout_settings_data['generatorFuelFlowRate'] = 0.00065972
+hideout_settings_data['airFilterUnitFlowRate'] = 0.002361
+hideout_settings_data['gpuBoostRate'] = 0.041225
 
 # set construction of any hideout areas to 1
 # iterate through areas looking for bitcoin farm id 5d494a445b56502f18c98a10
@@ -702,8 +757,8 @@ for area in hideout_areas_data:
         area['stages'][key]['constructionTime'] = 1
 
 # # set production of all items to 1 
-# for items in hideout_production_data:
-#     items['productionTime'] = 1
+for items in hideout_production_data['recipes']:
+    items['productionTime'] = 1
 
 # # set workout speed and success range to the same values for each stage    
 # for workout in range(0, len(hideout_workout_data[0]['quickTimeEvents'])):
@@ -728,18 +783,28 @@ for area in hideout_areas_data:
 # ####
 # # insurance changes
 # ####
+# moved out of this file, unsure to where
 # insurance_data['insuranceMultiplier'][prapor_id] = 0.15
 # insurance_data['insuranceMultiplier'][therapist_id] = 0.15
 
-# insurance_data['returnChancePercent'][prapor_id] = 75
-# insurance_data['returnChancePercent'][therapist_id] = 75
-# insurance_data['runIntervalSeconds'] = 60
+insurance_data['returnChancePercent'][prapor_id] = 75
+insurance_data['returnChancePercent'][therapist_id] = 75
+insurance_data['runIntervalSeconds'] = 60
+
+prapor_base_data['insurance']['min_return_hour'] = 0
+prapor_base_data['insurance']['max_return_hour'] = 0
+prapor_base_data['insurance']['max_storage_time'] = 6000
+therapist_base_data['insurance']['min_return_hour'] = 0
+therapist_base_data['insurance']['max_return_hour'] = 0
+therapist_base_data['insurance']['max_storage_time'] = 6000
+
+global_data['config']['Insurance']['MaxStorageTimeInHour'] = 600
 
 # # gather all trader folders
 # trader_list = os.listdir(trader_path)
 # trader_list.remove('ragfair')
 
-# # iterate through the traders change their nameds
+# # iterate through the traders change their names
 # # try setting their repair quality to 1, instant insurance return time and 
 # # longer equipment storage. convert all avatars to .png as some are .jpg
 # for trader in trader_list:
@@ -817,14 +882,9 @@ for area in hideout_areas_data:
 #         new_value_list.remove(value)
 #         break
 
-# prapor_base_data['insurance']['min_return_hour'] = 0
-# prapor_base_data['insurance']['max_return_hour'] = 0
-# prapor_base_data['insurance']['max_storage_time'] = 6000
-# therapist_base_data['insurance']['min_return_hour'] = 0
-# therapist_base_data['insurance']['max_return_hour'] = 0
-# therapist_base_data['insurance']['max_storage_time'] = 6000
 
-#global_data['config']['Insurance']['MaxStorageTimeInHour'] = 600
+
+
 
 ####
 # bot name changes
@@ -921,17 +981,17 @@ bear_data['firstName'] = bear_name_list
 usec_data['firstName'] = usec_name_list
 
 # weap/armor durability for all non-pmc bots
-for bot in bot_data['durability']:
-    if bot_data['durability'][bot] != 'pmc':
-        # set armor values
-        bot_data['durability'][bot]['armor']['maxDelta'] = 10
+# for bot in bot_data['durability']:
+#     if bot_data['durability'][bot] != 'pmc':
+#         # set armor values
+#         bot_data['durability'][bot]['armor']['maxDelta'] = 10
         
-        # set weapon values
-        bot_data['durability'][bot]['weapon']['lowestMax'] = 80
-        bot_data['durability'][bot]['weapon']['minDelta'] = 0
-        bot_data['durability'][bot]['weapon']['maxDelta'] = 20
+#         # set weapon values
+#         bot_data['durability'][bot]['weapon']['lowestMax'] = 80
+#         bot_data['durability'][bot]['weapon']['minDelta'] = 0
+#         bot_data['durability'][bot]['weapon']['maxDelta'] = 20
         
-global_data['config']['Malfunction']['AllowMalfForBots'] = True
+# global_data['config']['Malfunction']['AllowMalfForBots'] = True
 
 ########
 # map changes
@@ -951,33 +1011,33 @@ for map_name in map_list:
         map_data['EscapeTimeLimit'] = 120
         #map_data['MinDistToExitPoint'] = 1
         #map_data['MinDistToFreePoint'] = 1
-        map_data['BotStop'] *= 2
-        map_data['GlobalContainerChanceModifier'] *= 1.5
-        map_data['GlobalLootChanceModifier'] *= 1.5
+        # map_data['BotStop'] *= 2
+        # map_data['GlobalContainerChanceModifier'] *= 1.5
+        # map_data['GlobalLootChanceModifier'] *= 1.5
     
-    # # create a list of all spawn points that either pmc or all players can spawn at
-    # spawn_list = []
-    # for spawn in range(0, len(map_data['SpawnPointParams'])):
-    #     if map_data['SpawnPointParams'][spawn]['Sides'][0] in ['Pmc', 'All']:
-    #         spawn_list.append(map_data['SpawnPointParams'][spawn]['Infiltration'])
+    # create a list of all spawn points that either pmc or all players can spawn at
+    spawn_list = []
+    for spawn in range(0, len(map_data['SpawnPointParams'])):
+        if map_data['SpawnPointParams'][spawn]['Sides'][0] in ['Pmc', 'All']:
+            spawn_list.append(map_data['SpawnPointParams'][spawn]['Infiltration'])
     
-    # # turn the list into a set to keep only unique values
-    # spawn_list = set(spawn_list)
+    # turn the list into a set to keep only unique values
+    spawn_list = set(spawn_list)
     
-    # # convert it into a comma seperated string
-    # spawn_string = ''
+    # convert it into a comma seperated string
+    spawn_string = ''
     
-    # for spawn in spawn_list:
-    #     spawn_string += spawn+','
+    for spawn in spawn_list:
+        spawn_string += spawn+','
     
-    # # remove the extra comma at the end of the last location
-    # spawn_string = spawn_string[0:-1]
+    # remove the extra comma at the end of the last location
+    spawn_string = spawn_string[0:-1]
     
-    # # set chance of exit to 100 and append all spawn locations as valid
-    # # starting points for that exit to appear
-    # for exits in range(0,len(map_data['exits'])):
-    #     map_data['exits'][exits]['Chance'] = 100
-    #     map_data['exits'][exits]['EntryPoints'] = spawn_string
+    # set chance of exit to 100 and append all spawn locations as valid
+    # starting points for that exit to appear
+    for exits in range(0,len(map_data['exits'])):
+        map_data['exits'][exits]['Chance'] = 100
+        map_data['exits'][exits]['EntryPoints'] = spawn_string
         
     save_json(map_data, full_path)
 
@@ -995,8 +1055,8 @@ if global_data['config']['GlobalLootChanceModifier'] < 0.3:
 # lower boss spawn rate to 15% where it was greater than 15% before
 for location in location_data['customWaves']['boss']:
     for spawn in range(0, len(location_data['customWaves']['boss'][location])):
-        if location_data['customWaves']['boss'][location][spawn]['BossChance'] > 15:
-            location_data['customWaves']['boss'][location][spawn]['BossChance'] = 15
+        if location_data['customWaves']['boss'][location][spawn]['BossChance'] > 5:
+            location_data['customWaves']['boss'][location][spawn]['BossChance'] = 5
 
 # remove requirements to drop armor, have red rebel and paracord on reserve cliff exit
 global_data['config']['RequirementReferences']['Alpinist'] = []
@@ -1023,6 +1083,9 @@ global_data['config']['RequirementReferences']['Alpinist'] = []
 # quest with availableAfter time for testing
 #quest_data['625d6ffaf7308432be1d44c5']['conditions']['AvailableForStart'][0]
 
+# set collector quest to not require anything to start
+quest_data['5c51aac186f77432ea65c552']['conditions']['AvailableForStart'] = []
+
 # remove wait time until quest can be started
 for quest in quest_data:
     for start in quest_data[quest]['conditions']['AvailableForStart']:
@@ -1032,163 +1095,163 @@ for quest in quest_data:
         except:
             pass
 
-# 8 hour daily quests
-quest_config_data['repeatableQuests'][0]['resetTime'] = 28880
-quest_config_data['repeatableQuests'][0]['numQuests'] = 4
-#quest_config_data['repeatableQuests'][0]['rewardScaling']['levels'] = [1, 10, 20, 30]
-quest_config_data['repeatableQuests'][0]['rewardScaling']['experience'] = [2000, 4000, 8000, 16000, 24000, 36000, 54000]
-quest_config_data['repeatableQuests'][0]['rewardScaling']['roubles'] = [11000, 20000, 32000, 48000, 72000, 108000, 162000]
-quest_config_data['repeatableQuests'][0]['rewardScaling']['items'] = [2, 3, 4, 5, 7, 7, 8]
-quest_config_data['repeatableQuests'][0]['rewardScaling']['reputation'] = [0.01, 0.01, 0.02, 0.02, 0.03, 0.04, 0.05]
-quest_config_data['repeatableQuests'][0]['rewardScaling']['rewardSpread'] = 0.1
-quest_config_data['repeatableQuests'][0]['rewardScaling']['skillRewardChance'] = [0.01, 0.03, 0.05, 0.10, 0.15, 0.20, 0.25]
-quest_config_data['repeatableQuests'][0]['rewardScaling']['skillPointReward'] = [10, 15, 20, 30, 50, 60, 75]
+# # 8 hour daily quests
+# quest_config_data['repeatableQuests'][0]['resetTime'] = 28880
+# quest_config_data['repeatableQuests'][0]['numQuests'] = 4
+# #quest_config_data['repeatableQuests'][0]['rewardScaling']['levels'] = [1, 10, 20, 30]
+# quest_config_data['repeatableQuests'][0]['rewardScaling']['experience'] = [2000, 4000, 8000, 16000, 24000, 36000, 54000]
+# quest_config_data['repeatableQuests'][0]['rewardScaling']['roubles'] = [11000, 20000, 32000, 48000, 72000, 108000, 162000]
+# quest_config_data['repeatableQuests'][0]['rewardScaling']['items'] = [2, 3, 4, 5, 7, 7, 8]
+# quest_config_data['repeatableQuests'][0]['rewardScaling']['reputation'] = [0.01, 0.01, 0.02, 0.02, 0.03, 0.04, 0.05]
+# quest_config_data['repeatableQuests'][0]['rewardScaling']['rewardSpread'] = 0.1
+# quest_config_data['repeatableQuests'][0]['rewardScaling']['skillRewardChance'] = [0.01, 0.03, 0.05, 0.10, 0.15, 0.20, 0.25]
+# quest_config_data['repeatableQuests'][0]['rewardScaling']['skillPointReward'] = [10, 15, 20, 30, 50, 60, 75]
 
-# set peacekeeper to 30% and mechanic to 35% weap reward, turn jaeger weap reward on at 20%
-quest_config_data['repeatableQuests'][0]['traderWhitelist'][3]['weaponRewardChancePercent'] = 30
-quest_config_data['repeatableQuests'][0]['traderWhitelist'][4]['weaponRewardChancePercent'] = 35
-quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['rewardCanBeWeapon'] = True
-quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['weaponRewardChancePercent'] = 20
+# # set peacekeeper to 30% and mechanic to 35% weap reward, turn jaeger weap reward on at 20%
+# quest_config_data['repeatableQuests'][0]['traderWhitelist'][3]['weaponRewardChancePercent'] = 30
+# quest_config_data['repeatableQuests'][0]['traderWhitelist'][4]['weaponRewardChancePercent'] = 35
+# quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['rewardCanBeWeapon'] = True
+# quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['weaponRewardChancePercent'] = 20
 
-# set exploration and completion tasks
-quest_config_data['repeatableQuests'][0]['questConfig']['Exploration']['maxExtracts'] = 2
-quest_config_data['repeatableQuests'][0]['questConfig']['Exploration']['specificExits']['probability'] = 0
-quest_config_data['repeatableQuests'][0]['questConfig']['Completion']['maxRequestedAmount'] = 3
-quest_config_data['repeatableQuests'][0]['questConfig']['Completion']['minRequestedBulletAmount'] = 1
-quest_config_data['repeatableQuests'][0]['questConfig']['Completion']['maxRequestedBulletAmount'] = 1
+# # set exploration and completion tasks
+# quest_config_data['repeatableQuests'][0]['questConfig']['Exploration']['maxExtracts'] = 2
+# quest_config_data['repeatableQuests'][0]['questConfig']['Exploration']['specificExits']['probability'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Completion']['maxRequestedAmount'] = 3
+# quest_config_data['repeatableQuests'][0]['questConfig']['Completion']['minRequestedBulletAmount'] = 1
+# quest_config_data['repeatableQuests'][0]['questConfig']['Completion']['maxRequestedBulletAmount'] = 1
 
-# set elimination tasks for level range 1-15 and 16-100, set 3rd range out of scope
-#quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['levelRange']['max'] = 15
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['bodyPartProb'] = 0
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['specificLocationProb'] = 0
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['distProb'] = 0
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['minKills'] = 1
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['weaponCategoryRequirementProb'] = 0
+# # set elimination tasks for level range 1-15 and 16-100, set 3rd range out of scope
+# #quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['levelRange']['max'] = 15
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['bodyPartProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['specificLocationProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['distProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['minKills'] = 1
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][0]['weaponCategoryRequirementProb'] = 0
 
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['levelRange']['max'] = 100
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['bodyPartProb'] = 0
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['specificLocationProb'] = 0
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['distProb'] = 0
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['minKills'] = 2
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['maxKills'] = 6
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['weaponCategoryRequirementProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['levelRange']['max'] = 100
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['bodyPartProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['specificLocationProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['distProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['minKills'] = 2
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['maxKills'] = 6
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['weaponCategoryRequirementProb'] = 0
 
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][2]['levelRange']['min'] = 999
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][2]['levelRange']['max'] = 999
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][2]['levelRange']['min'] = 999
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][2]['levelRange']['max'] = 999
 
-# set all boss probabilities to 0
-for key in range(2, 9):
-    quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['targets'][key]['relativeProbability'] = 0
+# # set all boss probabilities to 0
+# for key in range(2, 9):
+#     quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['targets'][key]['relativeProbability'] = 0
 
-# 3 day weekly quests
-quest_config_data['repeatableQuests'][1]['resetTime'] = 259200
-quest_config_data['repeatableQuests'][1]['numQuests'] = 2
-#quest_config_data['repeatableQuests'][1]['rewardScaling']['levels'] = [1, 10, 20, 30]
-quest_config_data['repeatableQuests'][1]['rewardScaling']['experience'] = [5000, 15000, 30000, 80000, 142000, 220000, 330000]
-quest_config_data['repeatableQuests'][1]['rewardScaling']['roubles'] = [20000, 50000, 175000, 350000, 540000, 810000, 1215000 ]
-quest_config_data['repeatableQuests'][1]['rewardScaling']['items'] = [4, 5, 6, 6, 7, 8, 9]
-quest_config_data['repeatableQuests'][1]['rewardScaling']['reputation'] = [0.02, 0.03, 0.04, 0.05, 0.06, 0.06, 0.07]
-quest_config_data['repeatableQuests'][1]['rewardScaling']['rewardSpread'] = 0.1
-quest_config_data['repeatableQuests'][1]['rewardScaling']['skillRewardChance'] = [0.02, 0.07, 0.12, 0.17, 0.22, 0.25, 0.3]
-quest_config_data['repeatableQuests'][1]['rewardScaling']['skillPointReward'] = [30, 40, 50, 60, 65, 70, 75, 80]
+# # 3 day weekly quests
+# quest_config_data['repeatableQuests'][1]['resetTime'] = 259200
+# quest_config_data['repeatableQuests'][1]['numQuests'] = 2
+# #quest_config_data['repeatableQuests'][1]['rewardScaling']['levels'] = [1, 10, 20, 30]
+# quest_config_data['repeatableQuests'][1]['rewardScaling']['experience'] = [5000, 15000, 30000, 80000, 142000, 220000, 330000]
+# quest_config_data['repeatableQuests'][1]['rewardScaling']['roubles'] = [20000, 50000, 175000, 350000, 540000, 810000, 1215000 ]
+# quest_config_data['repeatableQuests'][1]['rewardScaling']['items'] = [4, 5, 6, 6, 7, 8, 9]
+# quest_config_data['repeatableQuests'][1]['rewardScaling']['reputation'] = [0.02, 0.03, 0.04, 0.05, 0.06, 0.06, 0.07]
+# quest_config_data['repeatableQuests'][1]['rewardScaling']['rewardSpread'] = 0.1
+# quest_config_data['repeatableQuests'][1]['rewardScaling']['skillRewardChance'] = [0.02, 0.07, 0.12, 0.17, 0.22, 0.25, 0.3]
+# quest_config_data['repeatableQuests'][1]['rewardScaling']['skillPointReward'] = [30, 40, 50, 60, 65, 70, 75, 80]
 
-# set peacekeeper to 35% and mechanic to 40% weap reward, turn jaeger weap reward on at 25%
-quest_config_data['repeatableQuests'][1]['traderWhitelist'][3]['weaponRewardChancePercent'] = 35
-quest_config_data['repeatableQuests'][1]['traderWhitelist'][4]['weaponRewardChancePercent'] = 40
-quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['rewardCanBeWeapon'] = True
-quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['weaponRewardChancePercent'] = 25
+# # set peacekeeper to 35% and mechanic to 40% weap reward, turn jaeger weap reward on at 25%
+# quest_config_data['repeatableQuests'][1]['traderWhitelist'][3]['weaponRewardChancePercent'] = 35
+# quest_config_data['repeatableQuests'][1]['traderWhitelist'][4]['weaponRewardChancePercent'] = 40
+# quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['rewardCanBeWeapon'] = True
+# quest_config_data['repeatableQuests'][0]['traderWhitelist'][-1]['weaponRewardChancePercent'] = 25
 
-# set exploration and completion tasks
-quest_config_data['repeatableQuests'][1]['questConfig']['Exploration']['maxExtracts'] = 4
-quest_config_data['repeatableQuests'][1]['questConfig']['Exploration']['specificExits']['probability'] = 0
-quest_config_data['repeatableQuests'][1]['questConfig']['Completion']['maxRequestedAmount'] = 5
-quest_config_data['repeatableQuests'][1]['questConfig']['Completion']['minRequestedBulletAmount'] = 1
-quest_config_data['repeatableQuests'][1]['questConfig']['Completion']['maxRequestedBulletAmount'] = 1
+# # set exploration and completion tasks
+# quest_config_data['repeatableQuests'][1]['questConfig']['Exploration']['maxExtracts'] = 4
+# quest_config_data['repeatableQuests'][1]['questConfig']['Exploration']['specificExits']['probability'] = 0
+# quest_config_data['repeatableQuests'][1]['questConfig']['Completion']['maxRequestedAmount'] = 5
+# quest_config_data['repeatableQuests'][1]['questConfig']['Completion']['minRequestedBulletAmount'] = 1
+# quest_config_data['repeatableQuests'][1]['questConfig']['Completion']['maxRequestedBulletAmount'] = 1
 
-# set elimination tasks for level range 1-15 and 16-100, set 3rd range out of scope
-#quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['levelRange']['max'] = 15
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['bodyPartProb'] = 0
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['specificLocationProb'] = 0
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['distProb'] = 0
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['minKills'] = 5
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['weaponCategoryRequirementProb'] = 0
+# # set elimination tasks for level range 1-15 and 16-100, set 3rd range out of scope
+# #quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['levelRange']['max'] = 15
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['bodyPartProb'] = 0
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['specificLocationProb'] = 0
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['distProb'] = 0
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['minKills'] = 5
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][0]['weaponCategoryRequirementProb'] = 0
 
-quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['levelRange']['max'] = 100
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['bodyPartProb'] = 0
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['specificLocationProb'] = 0
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['distProb'] = 0
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['minKills'] = 5
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['maxKills'] = 10
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['weaponCategoryRequirementProb'] = 0
+# quest_config_data['repeatableQuests'][0]['questConfig']['Elimination'][1]['levelRange']['max'] = 100
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['bodyPartProb'] = 0
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['specificLocationProb'] = 0
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['distProb'] = 0
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['minKills'] = 5
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['maxKills'] = 10
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['weaponCategoryRequirementProb'] = 0
 
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][2]['levelRange']['min'] = 999
-quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][2]['levelRange']['max'] = 999
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][2]['levelRange']['min'] = 999
+# quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][2]['levelRange']['max'] = 999
 
-# set all boss probabilities for daily/weekly quests to 0
-for key in range(2, 9):
-    quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['targets'][key]['relativeProbability'] = 0
+# # set all boss probabilities for daily/weekly quests to 0
+# for key in range(2, 9):
+#     quest_config_data['repeatableQuests'][1]['questConfig']['Elimination'][1]['targets'][key]['relativeProbability'] = 0
 
-# # therapist barters
-# for trade in therapist_assort_data['barter_scheme']:
-#     for item in therapist_assort_data['barter_scheme'][trade]:
-#         for subitem in item:
-#             # LedX for Thicc Case
-#             if subitem['_tpl'] == '5c0530ee86f774697952d952':
-#                 subitem['count'] = 5
-#             # Moonshine for Thicc Case
-#             if subitem['_tpl'] == '5d1b376e86f774252519444e':
-#                 subitem['count'] = 10
-#             # Euro for Itemcase
-#             if subitem['_tpl'] == '569668774bdc2da2298b4568':
-#                 subitem['count'] = 7256
-#             # Ophthalmoscope for Itemcase
-#             if subitem['_tpl'] == '5af0534a86f7743b6f354284':
-#                 subitem['count'] = 8    
-#             # Dogtags for Itemcase
-#             if subitem['_tpl'] == '59f32c3b86f77472a31742f0' and subitem['count'] == 80:
-#                 subitem['count'] = 20
-#             # Dogtags for Scav Junk Box
-#             if subitem['_tpl'] == '59f32c3b86f77472a31742f0' and subitem['count'] == 40:
-#                 subitem['count'] = 15           
-#             # Roubles for Scav Junk Box
-#             if subitem['_tpl'] == '5449016a4bdc2d6f028b456f' and subitem['count'] == 1106138:
-#                 subitem['count'] = 961138
-#             # Roubles for Medcase
-#             if subitem['_tpl'] == '5449016a4bdc2d6f028b456f' and subitem['count'] == 548610:
-#                 subitem['count'] = 290610
-#             # Dogtags for LedX
-#             if subitem['_tpl'] == '59f32c3b86f77472a31742f0' and subitem['count'] == 140:
-#                 subitem['count'] = 20
+# # # therapist barters
+# # for trade in therapist_assort_data['barter_scheme']:
+# #     for item in therapist_assort_data['barter_scheme'][trade]:
+# #         for subitem in item:
+# #             # LedX for Thicc Case
+# #             if subitem['_tpl'] == '5c0530ee86f774697952d952':
+# #                 subitem['count'] = 5
+# #             # Moonshine for Thicc Case
+# #             if subitem['_tpl'] == '5d1b376e86f774252519444e':
+# #                 subitem['count'] = 10
+# #             # Euro for Itemcase
+# #             if subitem['_tpl'] == '569668774bdc2da2298b4568':
+# #                 subitem['count'] = 7256
+# #             # Ophthalmoscope for Itemcase
+# #             if subitem['_tpl'] == '5af0534a86f7743b6f354284':
+# #                 subitem['count'] = 8    
+# #             # Dogtags for Itemcase
+# #             if subitem['_tpl'] == '59f32c3b86f77472a31742f0' and subitem['count'] == 80:
+# #                 subitem['count'] = 20
+# #             # Dogtags for Scav Junk Box
+# #             if subitem['_tpl'] == '59f32c3b86f77472a31742f0' and subitem['count'] == 40:
+# #                 subitem['count'] = 15           
+# #             # Roubles for Scav Junk Box
+# #             if subitem['_tpl'] == '5449016a4bdc2d6f028b456f' and subitem['count'] == 1106138:
+# #                 subitem['count'] = 961138
+# #             # Roubles for Medcase
+# #             if subitem['_tpl'] == '5449016a4bdc2d6f028b456f' and subitem['count'] == 548610:
+# #                 subitem['count'] = 290610
+# #             # Dogtags for LedX
+# #             if subitem['_tpl'] == '59f32c3b86f77472a31742f0' and subitem['count'] == 140:
+# #                 subitem['count'] = 20
 
-# # peacekeeper barters
-# for trade in peacekeeper_assort_data['barter_scheme']:
-#     for item in peacekeeper_assort_data['barter_scheme'][trade]:
-#         for subitem in item:
-#             # Secure magnetic tape for Thicc Case
-#             if subitem['_tpl'] == '61bf7c024770ee6f9c6b8b53':
-#                 subitem['count'] = 7
-#             # TerraGroup Blue Folders for Thicc Case
-#             if subitem['_tpl'] == '6389c8c5dbfd5e4b95197e6b':
-#                 subitem['count'] = 5
+# # # peacekeeper barters
+# # for trade in peacekeeper_assort_data['barter_scheme']:
+# #     for item in peacekeeper_assort_data['barter_scheme'][trade]:
+# #         for subitem in item:
+# #             # Secure magnetic tape for Thicc Case
+# #             if subitem['_tpl'] == '61bf7c024770ee6f9c6b8b53':
+# #                 subitem['count'] = 7
+# #             # TerraGroup Blue Folders for Thicc Case
+# #             if subitem['_tpl'] == '6389c8c5dbfd5e4b95197e6b':
+# #                 subitem['count'] = 5
 
-# # skier barters
-# for trade in skier_assort_data['barter_scheme']:
-#     for item in skier_assort_data['barter_scheme'][trade]:
-#         for subitem in item:
-#             # Moonshine for Weapon Case
-#             if subitem['_tpl'] == '5d1b376e86f774252519444e':
-#                 subitem['count'] = 4
+# # # skier barters
+# # for trade in skier_assort_data['barter_scheme']:
+# #     for item in skier_assort_data['barter_scheme'][trade]:
+# #         for subitem in item:
+# #             # Moonshine for Weapon Case
+# #             if subitem['_tpl'] == '5d1b376e86f774252519444e':
+# #                 subitem['count'] = 4
 
-# # mechanic barters
-# for trade in mechanic_assort_data['barter_scheme']:
-#     for item in mechanic_assort_data['barter_scheme'][trade]:
-#         for subitem in item:
-#             # Bitcoin for Weapon Case
-#             if subitem['_tpl'] == '59faff1d86f7746c51718c9c' and subitem['count'] == 10:
-#                 subitem['count'] = 5
-#             # Bitcoin for Thicc Weap Case
-#             if subitem['_tpl'] == '59faff1d86f7746c51718c9c' and subitem['count'] == 20:
-#                 subitem['count'] = 10
+# # # mechanic barters
+# # for trade in mechanic_assort_data['barter_scheme']:
+# #     for item in mechanic_assort_data['barter_scheme'][trade]:
+# #         for subitem in item:
+# #             # Bitcoin for Weapon Case
+# #             if subitem['_tpl'] == '59faff1d86f7746c51718c9c' and subitem['count'] == 10:
+# #                 subitem['count'] = 5
+# #             # Bitcoin for Thicc Weap Case
+# #             if subitem['_tpl'] == '59faff1d86f7746c51718c9c' and subitem['count'] == 20:
+# #                 subitem['count'] = 10
 
 # multiply the players current/max health for all game editions
 # will only affect new profiles that are created
@@ -1231,25 +1294,28 @@ if len(profile_list) > 0:
 #     save_json(bot_data, bot_types_path+bot)  
 
 # change trader image paths from jpg to png
-skier_base_data['avatar'] = skier_base_data['avatar'].replace('jpg', 'png')
-fence_base_data['avatar'] = fence_base_data['avatar'].replace('jpg', 'png')
-prapor_base_data['avatar'] = prapor_base_data['avatar'].replace('jpg', 'png')
-ragman_base_data['avatar'] = ragman_base_data['avatar'].replace('jpg', 'png')
-jaeger_base_data['avatar'] = jaeger_base_data['avatar'].replace('jpg', 'png')
-mechanic_base_data['avatar'] = mechanic_base_data['avatar'].replace('jpg', 'png')
-therapist_base_data['avatar'] = therapist_base_data['avatar'].replace('jpg', 'png')
-peacekeeper_base_data['avatar'] = peacekeeper_base_data['avatar'].replace('jpg', 'png')
+# skier_base_data['avatar'] = skier_base_data['avatar'].replace('jpg', 'png')
+# fence_base_data['avatar'] = fence_base_data['avatar'].replace('jpg', 'png')
+# prapor_base_data['avatar'] = prapor_base_data['avatar'].replace('jpg', 'png')
+# ragman_base_data['avatar'] = ragman_base_data['avatar'].replace('jpg', 'png')
+# jaeger_base_data['avatar'] = jaeger_base_data['avatar'].replace('jpg', 'png')
+# mechanic_base_data['avatar'] = mechanic_base_data['avatar'].replace('jpg', 'png')
+# therapist_base_data['avatar'] = therapist_base_data['avatar'].replace('jpg', 'png')
+# peacekeeper_base_data['avatar'] = peacekeeper_base_data['avatar'].replace('jpg', 'png')
 
 # remove snarky chat message banter from bots
+# for response in chat_data['victim']:
+#     print(chat_data['victim'][response])
 chat_data['victim']['responseChancePercent'] = 0
 chat_data['killer']['responseChancePercent'] = 0
 
 # turn snow on
-try:
-    weather_data['forceWinterEvent'] = True
-except:
-    print("winter event not found")
-    pass
+# no longer valid, check mod online for how to alter these
+# try:
+#     weather_data['forceWinterEvent'] = True
+# except:
+#     print("winter event not found")
+#     pass
     
 ##########
 # save and close files
@@ -1265,6 +1331,8 @@ save_json(usec_data, usec_bot_path)
 save_json(weather_data, weather_path)
 save_json(ragfair_data, ragfair_path)
 save_json(locales_data, locales_path)
+save_json(lab_data, lab_path)
+
 save_json(location_data, location_path)
 save_json(profiles_data, profiles_path)
 
@@ -1273,7 +1341,7 @@ save_json(quest_config_data, quest_config_path)
 save_json(hideout_areas_data, hideout_areas_path)
 save_json(hideout_workout_data, hideout_workout_path)
 save_json(hideout_settings_data, hideout_settings_path)
-save_json(hideout_scav_case_data, hideout_scav_case_path)
+#save_json(hideout_scav_case_data, hideout_scav_case_path)
 save_json(hideout_production_data, hideout_production_path)
 
 save_json(skier_base_data, skier_base_path)
@@ -1292,7 +1360,6 @@ save_json(mechanic_assort_data, mechanic_assort_path)
 save_json(therapist_assort_data, therapist_assort_path)
 save_json(peacekeeper_assort_data, peacekeeper_assort_path)
 
-#####
 # replace trader img files
 #####
 img_list = os.listdir(mod_trader_img_path)
@@ -1303,9 +1370,9 @@ for img in img_list:
 #############
 # mod bots
 #############
-bot_health_mod_amount = 1.25
+bot_health_mod_amount = 0.75
 
-file_path = install_drive + eft_version +'Aki_Data/Server/database/bots/types/'
+file_path = install_drive + eft_version +'SPT_Data/Server/database/bots/types/'
 file_list = os.listdir(file_path)
 
 for files in file_list:

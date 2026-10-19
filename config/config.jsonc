@@ -1,0 +1,17 @@
+{
+    "botNames": true,
+    "magSize": true,
+    "loadSpeed": true,
+    "moneyStackSize": true,
+    "moneyOnCharacter": true,
+    "keyUsage": false,
+    "stamina": false,
+    "inertia": false,
+    "exp": false,
+    "meds": true,
+    "ammo": false,
+    "hideout": true,
+    "itemWeight": true,
+    "raidTime": false,
+    "bossSpawnChance": false
+}
